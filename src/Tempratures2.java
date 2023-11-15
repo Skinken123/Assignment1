@@ -45,8 +45,6 @@ public class Tempratures2
     out.print("number of measurements per week: ");
     int nofMeasurementsPerWeek = in.nextInt();
 
-    int bing = 23;
-
     // storage space for temperature data
     double[][] t = new double[nofWeeks + 1][nofMeasurementsPerWeek + 1];
 
