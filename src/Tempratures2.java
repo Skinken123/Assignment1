@@ -98,9 +98,14 @@ public class Tempratures2
     public static void read (double[] temp)
     {
     if (temp.length < 2)
-    throw new IllegalArgumentException("not enough space");
+    {
+        throw new IllegalArgumentException("not enough space");
+    }
+   
     for (int i = 1; i < temp.length; i++)
-    temp[i] = in.nextDouble();
+    {
+        temp[i] = in.nextDouble();
+    }
     }
 
     // print displays the temperatures in a specified array.
@@ -118,7 +123,7 @@ public class Tempratures2
     // Temperatures are given from index 1, inclusive.
     public static double min (double[] temp)
     {
-    double min = 10000;
+    double min = temp[0];
         for (int i = 1; i < temp.length; i++)
         {  
             if (temp[i] < min)
@@ -133,7 +138,7 @@ public class Tempratures2
     // Temperatures are given from index 1, inclusive.
     public static double max (double[] temp)
     {
-    double max = -274;
+    double max = temp[0];
         for (int i = 1; i < temp.length; i++)
         {
             if (temp[i] > max)

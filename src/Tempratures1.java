@@ -74,16 +74,17 @@ public class Tempratures1
     double[] sumT = new double[nofWeeks + 1];
     double[] avgT = new double[nofWeeks + 1];
 
-    double minTemp = 10000;
-    double maxTemp = -274;
+    double minTemp = t[1][1];
+    double maxTemp = t[1][1];
     double sumTemp = 0;
-    double avgTemp = 0;
-    // add code here
+    double avgTemp = t[1][1];
+    
     for (int i = 1; i < t.length; i++)
     {
     maxT[i] = t[i][1];
     minT[i] = t[i][1];
     sumT[i] = t[i][1];
+    
         for (int j = 2; j < t[i].length; j++)
         {
             if (t[i][j] > maxT[i])
@@ -113,13 +114,19 @@ public class Tempratures1
     // show the least, greatest and average temperatures
     out.println("the least, greatest and average temperatures" + " - weekly");
     for (int week = 1; week <= nofWeeks; week++)
-    out.print(minT[week] + " ");
+    {
+        out.print(minT[week] + " ");
+    }
     out.println("");
     for (int week = 1; week <= nofWeeks; week++)
-    out.print(maxT[week] + " ");
+    {
+        out.print(maxT[week] + " ");
+    }
     out.println("");
     for (int week = 1; week <= nofWeeks; week++)
-    out.print(avgT[week] + " ");
+    {
+        out.print(avgT[week] + " ");
+    }
     out.println("");
     out.println();
 
