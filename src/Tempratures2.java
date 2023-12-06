@@ -70,9 +70,9 @@ public class Tempratures2
     double[] avgT = new double[nofWeeks + 1];
     for (int week = 1; week <= nofWeeks; week++)
     {
-    minT[week] = min(splitRow(t, week));
-    maxT[week] = max(splitRow(t, week));
-    avgT[week] = sumAvg(splitRow(t, week));
+    minT[week] = min(t[week]);
+    maxT[week] = max(t[week]);
+    avgT[week] = sum(t[week])/(t[week].length-1);
     }
 
     // show the least, greatest and average temperatures
@@ -85,7 +85,8 @@ public class Tempratures2
     // the least, greatest and average temperatures - whole period
     double minTemp = min(minT);
     double maxTemp = max(maxT);
-    double avgTemp = sumAvg(avgT);
+    double sumTemp = sum(avgT);
+    double avgTemp = sumTemp/(t.length-1);
 
     // show the least, greatest and average temperature for
     // the whole period
@@ -124,7 +125,7 @@ public class Tempratures2
     // Temperatures are given from index 1, inclusive.
     public static double min (double[] temp)
     {
-    double min = temp[0];
+    double min = temp[1];
         for (int i = 1; i < temp.length; i++)
         {  
             if (temp[i] < min)
@@ -139,7 +140,7 @@ public class Tempratures2
     // Temperatures are given from index 1, inclusive.
     public static double max (double[] temp)
     {
-    double max = temp[0];
+    double max = temp[1];
         for (int i = 1; i < temp.length; i++)
         {
             if (temp[i] > max)
@@ -152,24 +153,13 @@ public class Tempratures2
 
     // sum returns the sum of the temperatures in a specified array.
     // Temperatures are given from index 1, inclusive.
-    public static double sumAvg (double[] temp)
+    public static double sum (double[] temp)
     {
     double sum = 0;
-    int g = 0;
         for (int i = 1; i < temp.length; i++)
         {    
-        sum += temp[i];
-        g++;   
+        sum += temp[i];  
         }
-        return (sum/g);
-    }
-
-    //splits the big array with all the data into samller arrays with only weekly data
-    public static double[] splitRow(double[][] array, int index) 
-    {
-        double[] splitArray = new double[array[index].length];
-        System.arraycopy(array[index], 0, splitArray, 0, array[index].length);
-
-        return splitArray;
+        return (sum);
     }
 }
