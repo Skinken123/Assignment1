@@ -93,8 +93,7 @@ public class Tempratures2
     out.println(minTemp + "\n" + maxTemp + "\n" + avgTemp);
     }
 
-    // read reads the temperatures and stores them in a specified
-    // array. The temperatures are stored from index 1, inclusive.
+    // read reads the temperatures and stores them in a specified array. The temperatures are stored from index 1, inclusive.
     public static void read (double[] temp)
     {
     if (temp.length < 2)
@@ -113,7 +112,9 @@ public class Tempratures2
     public static void print (double[] temp)
     {
     if (temp.length < 2)
-    throw new IllegalArgumentException("no temperatures");
+    {
+        throw new IllegalArgumentException("no temperatures");
+    } 
     for (int i = 1; i < temp.length - 1; i++)
     out.print(temp[i] + " ");
     out.println(temp[temp.length - 1]);
